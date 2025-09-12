@@ -12,6 +12,7 @@ struct Spoiler: View{
                 mostrar = !mostrar
             }
             .foregroundStyle((mostrar) ? Color.white: Color.blue)
+            .padding([.top], 15)
         
     }
     
