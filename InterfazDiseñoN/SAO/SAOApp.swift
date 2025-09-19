@@ -1,17 +1,12 @@
-//
-//  SAOApp.swift
-//  SAO
-//
-//  Created by alumno on 9/17/25.
-//
-
 import SwiftUI
 
 @main
-struct SAOApp: App {
+struct Proyecto1App: App {
+    //@State var controlador_de_juego = ControlJuego()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                //environment(controlador_de_juego)
         }
     }
 }
