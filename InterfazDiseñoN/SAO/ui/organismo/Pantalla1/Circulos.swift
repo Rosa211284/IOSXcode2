@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct CiruclosRedondos2: View {
-    let numberOfCircles = 12 // Número de círculos alrededor de la imagen
-    let radius: CGFloat = 180
+    let numero_circulos = 12
+    let radio: CGFloat = 180
     
     //intento
     
-    let iconNames = [
+    let iconos_Nombres = [
         "person",
         "house",
         "heart",
@@ -25,7 +25,7 @@ struct CiruclosRedondos2: View {
     
     
     var body: some View {
-        ForEach(0..<numberOfCircles, id: \.self) { index in
+        ForEach(0..<numero_circulos, id: \.self) { index in
                    ZStack {
                        Circle()
                            .frame(width: 40)
@@ -39,12 +39,12 @@ struct CiruclosRedondos2: View {
                                    .foregroundStyle(.yellow)
                                
                             
-                               Image(systemName: iconNames[index])
+                               Image(systemName: iconos_Nombres[index])
                                    .foregroundColor(.white)
                                    .font(.system(size: 20)) // Ajusta el tamaño del icono si es necesario
                            }
-                           .offset(x: radius * cos(CGFloat(index) * 2 * .pi / CGFloat(numberOfCircles)),
-                                   y: radius * sin(CGFloat(index) * 2 * .pi / CGFloat(numberOfCircles)))
+                           .offset(x: radio * cos(CGFloat(index) * 2 * .pi / CGFloat(numero_circulos)),
+                                   y: radio * sin(CGFloat(index) * 2 * .pi / CGFloat(numero_circulos)))
                    }
                }
         

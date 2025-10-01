@@ -10,7 +10,7 @@ struct Navegacion_Principal : View {
     var body: some View {
         NavigationStack{
             Pantalla_Inicio()
-            
+                .navigationTitle("inicio")
         }
         
     }

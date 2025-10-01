@@ -9,28 +9,42 @@ import SwiftUI
 
 struct Encabezado: View {
     var noticia_presentar: Noticia = Noticia(
-        titular: "404", cuerpo: "no eoncontrado", imagen: "imagen", prioridad: .importante
+        titular: "404", cuerpo: "gatito malvado gatito encarcelado", imagen: "1", prioridad: .importante
     )
     
     var body: some View {
-        HStack(spacing: 10){
-            Image(systemName: "list.bullet.rectangle")
+        
+        HStack(){
+            Image(noticia_presentar.imagen)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100)
+                .frame(width: 130)
+                .clipShape(Circle())
             
             VStack{
                 HStack{
                     Text(noticia_presentar.titular)
+                        .lineLimit(2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color.cyan)
                     Spacer()
                 }
                 
                 HStack{
                     Text(noticia_presentar.cuerpo)
+                        .lineLimit(3)
                     Spacer()
                 }
             }
         }
+        .padding(5)
+        .background{
+            Rectangle()
+                .foregroundStyle(Color.gray)
+                .cornerRadius(5)
+        }
+       
+        .padding(5)
     }
     
 }
