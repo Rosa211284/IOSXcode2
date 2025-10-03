@@ -12,3 +12,8 @@ struct Pantalla_Configuracion: View {
         Text("Pantalla de configuracion 7w7")
     }
 }
+
+
+#Preview {
+    Pantalla_Configuracion()
+}

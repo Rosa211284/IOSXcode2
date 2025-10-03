@@ -1,7 +1,11 @@
 import SwiftUI
 
+
+
+
+
 struct PantallaNota: View{
-@State var noticia: Noticia
+    @State var noticia: Noticia
     var body: some View {
         VStack{
             
@@ -15,10 +19,9 @@ struct PantallaNota: View{
             Text(noticia.cuerpo)
         } .padding(20)
         Spacer()
-        
-    
     }
-}
+    }
+
 
 #Preview {
     PantallaNota(noticia: noticias[3])

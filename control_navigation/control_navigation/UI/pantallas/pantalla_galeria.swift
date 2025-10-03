@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+
+
 struct Pantalla_Galeria: View {
     var body: some View {
+      
         Text("Pantalla de galeria UwU")
         NavigationLink{
             Pantalla_Configuracion()
@@ -26,7 +29,7 @@ struct Pantalla_Galeria: View {
 
 #Preview {
     NavigationStack{
-        Pantalla_Inicio()
+        Pantalla_Galeria()
     }
    
 }

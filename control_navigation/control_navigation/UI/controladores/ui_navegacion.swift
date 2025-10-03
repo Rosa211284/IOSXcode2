@@ -6,11 +6,46 @@
 //
 import SwiftUI
 
+
+enum Pestañas{
+    case Configuracion
+    case Galeria
+    case Noticias
+    case Inicio
+}
+
 struct Navegacion_Principal : View {
+    
+    @State var pestaña_actual: Pestañas = .Inicio
+    
     var body: some View {
-        NavigationStack{
-            Pantalla_Inicio()
-                .navigationTitle("inicio")
+        TabView(selection: $pestaña_actual){
+            Tab("Watch Now", systemImage: "play", value: .Inicio){
+                
+                Pantalla_Galeria()
+                
+            }.badge("7w7")
+            
+            Tab("Noticias", systemImage: "person.fill.turn.left", value: .Noticias){
+             
+                    Pantalla_Noticias()
+                
+            }
+            .badge(noticias.count)
+            
+            
+            Tab("Galeria", systemImage: "character.book.closed.fill", value: .Noticias){
+                
+                    Pantalla_Galeria()
+                
+            }
+            
+            Tab("Configuracion", systemImage: "paperclip.circle.fill", value: .Noticias){
+                
+                    Pantalla_Configuracion()
+                
+            }
+           
         }
         
     }
