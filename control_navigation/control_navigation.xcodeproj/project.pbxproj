@@ -10,9 +10,22 @@
 		FB99B3322E8AF75A00EA3833 /* control_navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = control_navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FBCC10912E943B1F0094D7D2 /* Exceptions for "control_navigation" folder in "control_navigation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UI/controladores/Untitled.swift,
+			);
+			target = FB99B3312E8AF75A00EA3833 /* control_navigation */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FB99B3342E8AF75A00EA3833 /* control_navigation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FBCC10912E943B1F0094D7D2 /* Exceptions for "control_navigation" folder in "control_navigation" target */,
+			);
 			path = control_navigation;
 			sourceTree = "<group>";
 		};

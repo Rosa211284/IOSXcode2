@@ -7,14 +7,20 @@
 
 import SwiftUI
 
-struct Encabezado: View {
+/*struct Encabezado: View {
     var noticia_presentar: Noticia = Noticia(
-        titular: "404", cuerpo: "gatito malvado gatito encarcelado", imagen: "1", prioridad: .importante
+        titular: "404", cuerpo: "1", imagen: "1", prioridad: .importante
     )
+*/
+
+struct Encabezado: View {
+    var publicacion_a_presentar: Publicacion = Publicacion(
+       userId: 1, id: 11 ,title: " gfdfgdf", body: "fgdfxcx"
+        )
     
     var body: some View {
         
-        HStack(){
+       /* HStack(){
             Image(noticia_presentar.imagen)
                 .resizable()
                 .scaledToFit()
@@ -36,7 +42,30 @@ struct Encabezado: View {
                     Spacer()
                 }
             }
-        }
+        }*/
+         HStack(){
+             /*Image(publicacion_a_presentar.imagen)
+                 .resizable()
+                 .scaledToFit()
+                 .frame(width: 130)
+                 .clipShape(Circle())*/
+             
+             VStack{
+                 HStack{
+                     Text(publicacion_a_presentar.title)
+                         .lineLimit(2)
+                         .fontWeight(.bold)
+                         .foregroundStyle(Color.cyan)
+                     Spacer()
+                 }
+                 
+                 HStack{
+                     Text(publicacion_a_presentar.body)
+                         .lineLimit(3)
+                     Spacer()
+                 }
+             }
+         }
         .padding(5)
         .background{
             Rectangle()
