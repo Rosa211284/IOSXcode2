@@ -12,48 +12,35 @@ struct Pantalla_Noticias: View {
     @Environment(controladorGeneral.self) var controlador
     
     var body: some View {
-        NavigationStack{
-            ScrollView{
-                LazyVStack{
-                    Text("Noticias en el mundo de los gatitos").bold()
-                    /*ForEach(lista_noticias){ Noticia in
-                     NavigationLink{
-                     PantallaNota(noticia: Noticia)
-                     } label: {
-                     Encabezado(noticia_presentar: Noticia)
-                     }
-                     .buttonStyle(.plain)
-                     }
-                     }.onAppear{
-                     if(controlador.publicaciones.isEmpty){
-                     Task{
-                     await  controlador.descargar_publicaciones()
-                     }
-                     }
-                     }*/
-                    NavigationLink{
-                    //PantallaNota(noticia: Noticia)
-                    } label: {
-                        Encabezado(publicacion_a_presentar: Publicacion)
-                    }
-   
-                    ForEach(controlador.publicaciones){ publicacion in
-                        Text("\(publicacion.title)")
-                            .padding(15)
-                        Text("\(publicacion.body)")
-                            .padding(15)
-                    }
-                }.onAppear{
-                    if(controlador.publicaciones.isEmpty){
-                        Task{
-                            await  controlador.descargar_publicaciones()
+        if(controlador.publicaciones.isEmpty){
+            Text("Estamos descargando los datos por favor espera")
+        }
+        else{
+            NavigationStack{
+                ScrollView{
+                    LazyVStack{
+                        ForEach(controlador.publicaciones) { publicacion in
+                            
+                            NavigationLink{
+                                PantallaPublicacion(publicacion_actual: publicacion)
+                            } label: {
+                                Encabezado(publicacion_a_presentar: publicacion)
+                            }
+                            .buttonStyle(.plain)
+                            
                         }
+                    }
+                }
+            }.onAppear {
+                if controlador.publicaciones.isEmpty{
+                    Task{
+                        await controlador.descargar_publicaciones()
                     }
                 }
             }
         }
     }
-}
+    }
 
 
 #Preview {
@@ -62,4 +49,22 @@ struct Pantalla_Noticias: View {
             .environment(controladorGeneral())
     }
 }
+
+
+//Text("Noticias en el mundo de los gatitos").bold()
+/*ForEach(lista_noticias){ Noticia in
+ NavigationLink{
+ PantallaNota(noticia: Noticia)
+ } label: {
+ Encabezado(noticia_presentar: Noticia)
+ }
+ .buttonStyle(.plain)
+ }
+ }.onAppear{
+ if(controlador.publicaciones.isEmpty){
+ Task{
+ await  controlador.descargar_publicaciones()
+ }
+ }
+ }*/
 
