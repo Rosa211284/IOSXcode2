@@ -28,7 +28,7 @@ struct Navegacion_Principal : View {
             
             Tab("Noticias", systemImage: "person.fill.turn.left", value: .Noticias){
              
-                    Pantalla_Noticias()
+                    PantallaNoticias()
                 
             }
             .badge(noticias.count)
@@ -53,4 +53,5 @@ struct Navegacion_Principal : View {
 
 #Preview {
     Navegacion_Principal()
+        .environment(controladorGeneral())
 }

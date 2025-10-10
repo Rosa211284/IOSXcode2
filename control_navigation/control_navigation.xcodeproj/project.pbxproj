@@ -14,7 +14,7 @@
 		FBCC10912E943B1F0094D7D2 /* Exceptions for "control_navigation" folder in "control_navigation" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				UI/controladores/Untitled.swift,
+				controladores/Untitled.swift,
 			);
 			target = FB99B3312E8AF75A00EA3833 /* control_navigation */;
 		};

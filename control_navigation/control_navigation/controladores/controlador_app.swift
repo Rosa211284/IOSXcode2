@@ -7,7 +7,10 @@ class controladorGeneral{
     let url_base = "https://jsonplaceholder.typicode.com"
     var publicaciones: [Publicacion] = []
     var comentarios: [comentario] = []
+    var usuarios: [Usuario] = []
    var publicacion_actual: Publicacion? = nil
+    var comentario_actual: comentario? = nil
+    var usuario_actual: Usuario? = nil
     
     init(){
         Task{
@@ -40,6 +43,21 @@ class controladorGeneral{
         
     }
     
+  
+    
+    private  func _descargar_usuario(id_usuario: Int) async{
+         guard let usuario_descagada: Usuario = await Servicio_Web().descargar_datos(url: "\(url_base)/users/\(id_usuario)") else {return}
+         
+         usuario_actual = usuario_descagada
+         
+     }
+     func descargar_usuario(_ id_usuario: Int){
+         Task{
+             await _descargar_usuario(id_usuario: id_usuario)
+         }
+         
+     }
+    
     
     func publicacion_seleccionada(_ id: Int){
         for publicacion in publicaciones {
@@ -50,6 +68,8 @@ class controladorGeneral{
         }
         descargar_comentarios(publicacion_actual?.id ?? 0)
     }
+    
+   
     
     
 }

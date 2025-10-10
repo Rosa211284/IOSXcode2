@@ -13,7 +13,7 @@ struct Pantalla_Inicio: View {
             Text("Pantalla inicio :)")
             
             NavigationLink{
-                Pantalla_Noticias()}
+                PantallaNoticias()}
             label: {
                 Text("Ir a pantalla de noticias")
             }
