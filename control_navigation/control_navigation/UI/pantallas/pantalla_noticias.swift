@@ -6,6 +6,7 @@ struct PantallaNoticias: View {
     @Environment(controladorGeneral.self) var controlador
     
     var body: some View {
+        Text("Noticias").padding().font(.custom("Helvetica Neue", size: 25))
         if(controlador.publicaciones.isEmpty){
             Text("Estamos descargando los datos, por favor espera.")
         }

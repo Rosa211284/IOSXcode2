@@ -52,7 +52,7 @@ struct Encabezado: View {
              
              VStack{
                  HStack{
-                     Text(publicacion_a_presentar.title)
+                     Text(publicacion_a_presentar.title).font(.custom("Helvetica Neue", size: 20)).padding(5)
                          .lineLimit(2)
                          .fontWeight(.bold)
                          .foregroundStyle(Color.cyan)
@@ -60,19 +60,20 @@ struct Encabezado: View {
                  }
                  
                  HStack{
-                     Text(publicacion_a_presentar.body)
-                         .lineLimit(3)
-                     Spacer()
+                     Text(publicacion_a_presentar.body).font(.custom("Helvetica Neue", size: 16)).padding(5)
+                         .lineLimit(4)
+                     
                  }
              }
          }
-        .padding(5)
+        .padding(10)
         .background{
             Rectangle()
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color.white)
                 .cornerRadius(5)
+                .border(Color.gray )
+             
         }
-       
         .padding(5)
     }
     

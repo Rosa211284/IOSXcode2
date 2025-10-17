@@ -9,21 +9,36 @@ struct PantallaPublicacion: View {
     
     
     var body: some View {
-        Text("Titulo: \(publicacion_actual.title)")
-            .onAppear{
-                controlador.publicacion_seleccionada(publicacion_actual.id)
-            }
-        
-        Text("\(publicacion_actual.body)")
-        
-        Text("Por: \(publicacion_actual.userId)")
-        Text("usuario \(controlador.usuarios.name)")
-        Text("usuario\(usuario_actual.email)")
-        
         ScrollView{
+        VStack(){
+            Text("Titulo: \(publicacion_actual.title)").font(.custom("Helvetica Neue", size: 24)).padding(5).multilineTextAlignment(.center)
+                .foregroundStyle(Color.cyan)
+                .onAppear{
+                    controlador.publicacion_seleccionada(publicacion_actual.id)
+                }
+            
+            Text("\(publicacion_actual.body)").font(.custom("Helvetica Neue", size: 18)).padding(5)
+            
+            //Text("Por: \(publicacion_actual.userId)")
+          
+            
+        }
+           
+       
+        
+      
             VStack{
+                Text("Publicaciones").font(.custom("Helvetica Neue", size: 20)).padding(5) .foregroundStyle(Color.cyan)
+                Spacer()
+                if let usuario = controlador.usuario{
+                    Text("Por: \(usuario.name)").font(.custom("Helvetica Neue", size: 15)).padding(10)
+                }
+                else{
+                    Text("bo hya usuario para esta publicacion")
+                }
+                
                 ForEach(controlador.comentarios){ comentario in
-                    Text("\(comentario)")
+                    Text("\(comentario)").padding(15)
                 }
             }
         }

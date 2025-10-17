@@ -19,10 +19,12 @@ struct Navegacion_Principal : View {
     @State var pestaña_actual: Pestañas = .Inicio
     
     var body: some View {
+        
+        
         TabView(selection: $pestaña_actual){
             Tab("Watch Now", systemImage: "play", value: .Inicio){
                 
-                Pantalla_Galeria()
+                Pantalla_Inicio()
                 
             }.badge("7w7")
             

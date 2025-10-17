@@ -9,31 +9,54 @@ import SwiftUI
 struct Pantalla_Inicio: View {
     var body: some View {
         
-        VStack{
-            Text("Pantalla inicio :)")
+        VStack(spacing: 30){
             
+            Text("Pantalla de Inicio ")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.cyan)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+            Text("Bienvenido Usuario")
+            
+            Image("4")
+                .resizable()
+                .aspectRatio(contentMode: ContentMode.fit)
+                .frame(maxWidth: 250 )
+        
+            
+
             NavigationLink{
                 PantallaNoticias()}
             label: {
-                Text("Ir a pantalla de noticias")
-            }
+                Text("Nombre:           ").padding(5) .foregroundStyle(Color.cyan)
+                Image(systemName: "paperplane.circle").resizable().frame(width: 30, height: 30) .foregroundStyle(Color.cyan)
+                  
+            }.padding().background(Color.black)
+                .cornerRadius(5)
             
             NavigationLink{
                 Pantalla_Configuracion()}
             label: {
-                Text("Ir a pantalla de configuracion")
-            }
+                Text("Apellido:            ").padding(5) .foregroundStyle(Color.cyan)
+                Image(systemName: "books.vertical").resizable().frame(width: 30, height: 30) .foregroundStyle(Color.cyan)
+            }.padding().background(Color.black)
+                .cornerRadius(5)
             
             NavigationLink{
                 Pantalla_Galeria()}
             label: {
-                Text("Ir a pantalla de galeria")
-            }
+                Text("Archivos:           ").padding(5) .foregroundStyle(Color.cyan)
+                Image(systemName: "paperclip").resizable().frame(width: 30, height: 30) .foregroundStyle(Color.cyan)
+            }.padding().background(Color.black)
+                .cornerRadius(5)
         }
     }
 }
 
-//link para ir a otra pantalla
+
+
+
 #Preview {
     NavigationStack{
         Pantalla_Inicio()
