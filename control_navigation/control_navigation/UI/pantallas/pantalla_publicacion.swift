@@ -24,8 +24,6 @@ struct PantallaPublicacion: View {
             
         }
            
-       
-        
       
             VStack{
                 Text("Publicaciones").font(.custom("Helvetica Neue", size: 20)).padding(5) .foregroundStyle(Color.cyan)
