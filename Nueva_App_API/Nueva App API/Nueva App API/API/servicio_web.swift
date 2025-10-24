@@ -19,7 +19,7 @@ class ConexionApi{
         }
         
         catch Errores_de_red.estado_negativo{
-            print("servidro esta ocupado, la url no exite")
+            print("servidor esta ocupado, la url no exite")
         }
         catch  Errores_de_red.falla_al_decodificar_info{
             print("Estructura mal escrita\(type(of: T.self))")

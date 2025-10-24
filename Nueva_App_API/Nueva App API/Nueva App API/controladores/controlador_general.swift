@@ -13,14 +13,39 @@ import Foundation
 class DemonSlayerApp{
   
     var personajes = [Personaje]()
+    var datos_pagina_actual : DatosPagina? = nil
     var pagina_actual = 1
+    static let demon_slayer_api = "https://www.demonslayer-api.com/api/v1"
     
-    init() {
-     
-    descargar_Personajes()
+    init(){
+        Task{
+            await descargar_Personajes()
+        }
     }
     
-    func descargar_Personajes() async{
-        guard let pagina_con_datos: Pagina = ConexionApi.descargar_datos(url: "")
+    func descargar_Personajes() async {
+        guard let pagina_con_datos: Pagina = await ConexionApi.descargar_datos(url:"\(DemonSlayerApp.demon_slayer_api)/characters?page=\(pagina_actual)") else{
+            print("No hay ocnexion a internet")
+            return
+        }
+        datos_pagina_actual = pagina_con_datos.datos
+        personajes = pagina_con_datos.personajes
     }
+    
+    func siguiente_pagina(){
+        if(pagina_actual > datos_pagina_actual!.totalPages ){
+            pagina_actual -= 1
+            return
+        }
+        
+        pagina_actual = pagina_actual + 1
+   
+        
+        print("Pagina actual \(pagina_actual)")
+        Task{
+            await descargar_Personajes()
+        }
+    }
+    
+    
 }
