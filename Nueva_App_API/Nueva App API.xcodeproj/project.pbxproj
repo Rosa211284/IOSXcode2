@@ -9,6 +9,8 @@
 /* Begin PBXFileReference section */
 		FB3776082EA6AB100027435A /* Nueva App API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nueva App API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8ED9ED2EABE8210032E0BE /* Nueva App API.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Nueva App API.xcodeproj"; sourceTree = "<group>"; };
+		FBC27BD32EAFDD8A004D4B1E /* Nueva App API.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Nueva App API.xcodeproj"; sourceTree = "<group>"; };
+		FBC27CA02EAFF701004D4B1E /* Nueva App API.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Nueva App API.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -47,6 +49,20 @@
 			sourceTree = "<group>";
 		};
 		FB8ED9EE2EABE8210032E0BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBC27BD42EAFDD8A004D4B1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBC27CA12EAFF701004D4B1E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -106,6 +122,14 @@
 			productRefGroup = FB3776092EA6AB100027435A /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = FBC27CA12EAFF701004D4B1E /* Products */;
+					ProjectRef = FBC27CA02EAFF701004D4B1E /* Nueva App API.xcodeproj */;
+				},
+				{
+					ProductGroup = FBC27BD42EAFDD8A004D4B1E /* Products */;
+					ProjectRef = FBC27BD32EAFDD8A004D4B1E /* Nueva App API.xcodeproj */;
+				},
 				{
 					ProductGroup = FB8ED9EE2EABE8210032E0BE /* Products */;
 					ProjectRef = FB8ED9ED2EABE8210032E0BE /* Nueva App API.xcodeproj */;

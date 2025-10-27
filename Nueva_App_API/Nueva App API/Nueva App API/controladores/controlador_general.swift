@@ -15,7 +15,10 @@ class DemonSlayerApp{
     var personajes = [Personaje]()
     var datos_pagina_actual : DatosPagina? = nil
     var pagina_actual = 1
+    
+    var chiste: String? = nil
     static let demon_slayer_api = "https://www.demonslayer-api.com/api/v1"
+    static let bromas_api = "https://sv443.net/jokeapi/v2/"
     
     init(){
         Task{
@@ -45,6 +48,21 @@ class DemonSlayerApp{
         Task{
             await descargar_Personajes()
         }
+    }
+    
+    func descargar_chiste(){
+        Task{
+            await _descargar_chiste
+        }
+    }
+    
+    
+    func descargar_Chiste() async {
+        guard let chiste: RespuestaJokeApi = await ConexionApi.descargar_datos(url:"\(DemonSlayerApp.bromas_api)/Any?lang=es") else{
+            print("No hay conexion a internet")
+            return
+        }
+        self.chiste = chiste
     }
     
     

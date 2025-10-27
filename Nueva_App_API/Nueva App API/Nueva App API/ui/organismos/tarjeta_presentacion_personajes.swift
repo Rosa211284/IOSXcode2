@@ -1,13 +1,13 @@
 //
-//  personaje_desc.swift
+//  Untitled.swift
 //  Nueva App API
 //
-//  Created by alumno on 10/24/25.
-
+//  Created by alumno on 10/27/25.
+//
 
 import SwiftUI
 
-struct Tarjeta_Personaje2: View {
+struct Tarjeta_Personaje: View {
     var personaje: Personaje
     
     var body: some View {
