@@ -1,21 +1,36 @@
-//
-//  pistas.swift
-//  juego_ra
-//
-//  Created by alumno on 11/5/25.
-//
 
 import CoreLocation
 
-
 let pistas = [
-    Pista(ubicacion: CLLocation(latitude: 31.74248270428674, longitude: -106.43215885609591),
-          id: "pista1",
-          cuerpo: PistaInformacion(informacion: "texto ")),
+    Pista(
+        ubicacion:
+            CLLocation(latitude: 31.74249399834499, longitude: -106.43208805090772),
+        id: "pista1",
+        cuerpo:
+            PistaInformacion(
+                informacion: "Texto para mostrar al usuario"
+            )
+    ),
     
-    Pista(ubicacion: CLLocation(latitude: 31.743168669191167, longitude: -106.43196890391373),
+    Pista(
+        ubicacion: CLLocation(latitude: 31.742407461151334, longitude:  -106.43174101331037),
           id: "pista2",
-          cuerpo: PistaInformacion(informacion: "texto ")),
+          cuerpo:
+            PistaInteractuable(
+                informacion: "texto ",
+                interacciones: [
+                    boton (mensaje: "",
+                           conecta_con_pista: "pista1",
+                          )]),
+]
+  
+       
+    
+    
+    
+    /*
+    
+    
     
     Pista(ubicacion: CLLocation(latitude: 31.743900921876357, longitude:  -106.43265971449689),
           id: "pista3",
@@ -25,8 +40,12 @@ let pistas = [
           id: "pista4",
           cuerpo: PistaInformacion(informacion: "texto ")),
     
-    Pista(ubicacion: CLLocation(latitude:  31.742363569955618, longitude:  -106.43358333729007), 
+    Pista(ubicacion: CLLocation(latitude:  31.742363569955618, longitude:  -106.43358333729007),
           id: "pista5",
           cuerpo: PistaInformacion(informacion: "texto "))
 ]
+
+     */
+
+
 

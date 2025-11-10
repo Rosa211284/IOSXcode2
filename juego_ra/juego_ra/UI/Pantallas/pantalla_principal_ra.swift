@@ -29,9 +29,14 @@ struct Pantalla_principal: View {
                     else if (pista.esta_en_rango(
                         ubicacion: provedor_ubicacion.ubicacion_actual)){
                         if let porcentaje = pista.calcular_porcentaje(ubicacion: provedor_ubicacion.ubicacion_actual){
+                            Text("distancia porcentaje\(porcentaje)")
                             switch(porcentaje){
                             case 1...10:
-                                Text("Te estas quemando ")
+                                NavigationLink{
+                                    Text("pantalla pista")
+                                } label:{
+                                    Text("Presiona para ir a la pista\(pista.id)").padding(20).background(Color.blue).border(Color.black).cornerRadius(10)
+                                }.buttonStyle(.plain).padding(10)
                                 
                             case 11...20:
                                 Text("Te estas quemando ")

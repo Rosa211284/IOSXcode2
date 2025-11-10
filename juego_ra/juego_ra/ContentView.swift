@@ -1,17 +1,9 @@
-//
-//  ContentView.swift
-//  juego_ra
-//
-//  Created by alumno on 11/5/25.
-//
 
 import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    
-    @State var servicio_ubicacion = servicioUbicacion()
-    
+    @State var servicio_ubicacion = ServicioUbicacion()
     
     var body: some View {
         VStack {
@@ -19,7 +11,8 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("\(servicio_ubicacion.ubicacion_actual?.distance(from: pistas.first!.ubicacion))")
-           
+            Text("Distancia a la pista es \(servicio_ubicacion.ubicacion_actual)")
+       
         }
         .padding()
     }

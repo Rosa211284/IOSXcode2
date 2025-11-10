@@ -21,4 +21,14 @@ struct PistaInformacion: CuerpoPista{
     var informacion: String
 }
 
+struct PistaInteractuable: CuerpoPista{
+    var informacion: String
+    
+    var tipo = TiposDePista.interactiva
+    
+    var interacciones: [boton]
+    
+    
+}
+
 

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		FB6591572EBBCDE00052A093 /* juego_ra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = juego_ra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FFB02652EBBCDE200378218 /* juego_ra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = juego_ra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FB6591592EBBCDE00052A093 /* juego_ra */ = {
+		5FFB02672EBBCDE200378218 /* juego_ra */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = juego_ra;
 			sourceTree = "<group>";
@@ -19,7 +19,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FB6591542EBBCDE00052A093 /* Frameworks */ = {
+		5FFB02622EBBCDE200378218 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB65914E2EBBCDE00052A093 = {
+		5FFB025C2EBBCDE200378218 = {
 			isa = PBXGroup;
 			children = (
-				FB6591592EBBCDE00052A093 /* juego_ra */,
-				FB6591582EBBCDE00052A093 /* Products */,
+				5FFB02672EBBCDE200378218 /* juego_ra */,
+				5FFB02662EBBCDE200378218 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FB6591582EBBCDE00052A093 /* Products */ = {
+		5FFB02662EBBCDE200378218 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB6591572EBBCDE00052A093 /* juego_ra.app */,
+				5FFB02652EBBCDE200378218 /* juego_ra.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB6591562EBBCDE00052A093 /* juego_ra */ = {
+		5FFB02642EBBCDE200378218 /* juego_ra */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB6591622EBBCDE10052A093 /* Build configuration list for PBXNativeTarget "juego_ra" */;
+			buildConfigurationList = 5FFB02702EBBCDE300378218 /* Build configuration list for PBXNativeTarget "juego_ra" */;
 			buildPhases = (
-				FB6591532EBBCDE00052A093 /* Sources */,
-				FB6591542EBBCDE00052A093 /* Frameworks */,
-				FB6591552EBBCDE00052A093 /* Resources */,
+				5FFB02612EBBCDE200378218 /* Sources */,
+				5FFB02622EBBCDE200378218 /* Frameworks */,
+				5FFB02632EBBCDE200378218 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				FB6591592EBBCDE00052A093 /* juego_ra */,
+				5FFB02672EBBCDE200378218 /* juego_ra */,
 			);
 			name = juego_ra;
 			packageProductDependencies = (
 			);
 			productName = juego_ra;
-			productReference = FB6591572EBBCDE00052A093 /* juego_ra.app */;
+			productReference = 5FFB02652EBBCDE200378218 /* juego_ra.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FB65914F2EBBCDE00052A093 /* Project object */ = {
+		5FFB025D2EBBCDE200378218 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					FB6591562EBBCDE00052A093 = {
+					5FFB02642EBBCDE200378218 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
-			buildConfigurationList = FB6591522EBBCDE00052A093 /* Build configuration list for PBXProject "juego_ra" */;
+			buildConfigurationList = 5FFB02602EBBCDE200378218 /* Build configuration list for PBXProject "juego_ra" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = FB65914E2EBBCDE00052A093;
+			mainGroup = 5FFB025C2EBBCDE200378218;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = FB6591582EBBCDE00052A093 /* Products */;
+			productRefGroup = 5FFB02662EBBCDE200378218 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB6591562EBBCDE00052A093 /* juego_ra */,
+				5FFB02642EBBCDE200378218 /* juego_ra */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FB6591552EBBCDE00052A093 /* Resources */ = {
+		5FFB02632EBBCDE200378218 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FB6591532EBBCDE00052A093 /* Sources */ = {
+		5FFB02612EBBCDE200378218 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		FB6591602EBBCDE10052A093 /* Debug */ = {
+		5FFB026E2EBBCDE300378218 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -160,6 +160,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = V624A3T7L3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -188,7 +189,7 @@
 			};
 			name = Debug;
 		};
-		FB6591612EBBCDE10052A093 /* Release */ = {
+		5FFB026F2EBBCDE300378218 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -223,6 +224,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V624A3T7L3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -244,18 +246,19 @@
 			};
 			name = Release;
 		};
-		FB6591632EBBCDE10052A093 /* Debug */ = {
+		5FFB02712EBBCDE300378218 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V624A3T7L3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Permisos oara usar la ubicacion 2";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Permisos de la ubicacion 3";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permisos para el uso de la ubicacion 1";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "El segundo permiso";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "PAra solictiar permisos de usar la ubicacion, su descripcion de uso";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "El tercer permiso";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -266,7 +269,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "alumnos.uacj.juego-ra";
+				PRODUCT_BUNDLE_IDENTIFIER = "UACJ-Alumnos.juego-ra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -274,18 +277,19 @@
 			};
 			name = Debug;
 		};
-		FB6591642EBBCDE10052A093 /* Release */ = {
+		5FFB02722EBBCDE300378218 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V624A3T7L3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Permisos oara usar la ubicacion 2";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Permisos de la ubicacion 3";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permisos para el uso de la ubicacion 1";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "El segundo permiso";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "PAra solictiar permisos de usar la ubicacion, su descripcion de uso";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "El tercer permiso";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -296,7 +300,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "alumnos.uacj.juego-ra";
+				PRODUCT_BUNDLE_IDENTIFIER = "UACJ-Alumnos.juego-ra";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -307,25 +311,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB6591522EBBCDE00052A093 /* Build configuration list for PBXProject "juego_ra" */ = {
+		5FFB02602EBBCDE200378218 /* Build configuration list for PBXProject "juego_ra" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB6591602EBBCDE10052A093 /* Debug */,
-				FB6591612EBBCDE10052A093 /* Release */,
+				5FFB026E2EBBCDE300378218 /* Debug */,
+				5FFB026F2EBBCDE300378218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB6591622EBBCDE10052A093 /* Build configuration list for PBXNativeTarget "juego_ra" */ = {
+		5FFB02702EBBCDE300378218 /* Build configuration list for PBXNativeTarget "juego_ra" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB6591632EBBCDE10052A093 /* Debug */,
-				FB6591642EBBCDE10052A093 /* Release */,
+				5FFB02712EBBCDE300378218 /* Debug */,
+				5FFB02722EBBCDE300378218 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FB65914F2EBBCDE00052A093 /* Project object */;
+	rootObject = 5FFB025D2EBBCDE200378218 /* Project object */;
 }

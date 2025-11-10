@@ -2,57 +2,66 @@
 //  servicio_ubicacion.swift
 //  juego_ra
 //
-//  Created by alumno on 11/5/25.
+//  Created by Jadzia Gallegos on 05/11/25.
 //
+
 import Foundation
 import CoreLocation
 
 @Observable
-class servicioUbicacion: NSObject, CLLocationManagerDelegate{
-    
+class ServicioUbicacion: NSObject, CLLocationManagerDelegate{
     var manejador_ubicacion = CLLocationManager()
     
     var estado_de_autorizacion: CLAuthorizationStatus?
-   var ubicacion_actual: CLLocationCoordinate2D?
+    var ubicacion_actual: CLLocation?
     
     override init(){
         super.init()
+        
         manejador_ubicacion.delegate = self
+        manejador_ubicacion.startUpdatingLocation()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager){
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         estado_de_autorizacion = manager.authorizationStatus
         
-        switch(estado_de_autorizacion){
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-            
-        case .authorizedWhenInUse:
-            manager.requestLocation()
-            
-        case .denied:
-            print("usuario no dio los permisos")
-            
-        case .restricted:
-            print("permisos retringidos para el uso de la informacion")
-            
-        default:
-            print("algo salio mal")
-            
-            
+        switch(manager.authorizationStatus){
+            case .notDetermined:
+                manager.requestWhenInUseAuthorization()
+                manager.requestAlwaysAuthorization()
+                
+            case .authorizedAlways:
+                manager.startUpdatingLocation()
+                
+            case .authorizedWhenInUse:
+                manager.startUpdatingLocation()
+                
+            case .denied:
+                print("Que malvado es el usario")
+                
+            case .restricted:
+                print("Tenemos permisos restringidos para usar la ubicacion")
+                
+            default:
+                print("Algo salio muy mal!!!")
         }
+    
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("\(locations.count)")
-        ubicacion_actual = locations.last?.coordinate
+        print("\(locations.last)")
+        
+        if locations.last != nil{
+            ubicacion_actual = locations.last
+        }
+
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        print("error:\(error.localizedDescription)")
+        print("Obtuvimos un error: \(error.localizedDescription)")
     }
     
-    func detetner_ubicacion(){
+    func detener_ubicacion(){
         manejador_ubicacion.stopUpdatingLocation()
     }
 }
