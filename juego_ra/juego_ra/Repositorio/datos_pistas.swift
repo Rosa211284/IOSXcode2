@@ -1,27 +1,31 @@
-
 import CoreLocation
 
 let pistas = [
     Pista(
         ubicacion:
             CLLocation(latitude: 31.74249399834499, longitude: -106.43208805090772),
-        id: "pista1",
+        id: "pista_1",
         cuerpo:
             PistaInformacion(
-                informacion: "Texto para mostrar al usuario"
+                informacion: "Texto para mostrar al usario"
             )
     ),
     
     Pista(
-        ubicacion: CLLocation(latitude: 31.742407461151334, longitude:  -106.43174101331037),
-          id: "pista2",
-          cuerpo:
-            PistaInteractuable(
-                informacion: "texto ",
-                interacciones: [
-                    boton (mensaje: "",
-                           conecta_con_pista: "pista1",
-                          )]),
+        ubicacion: CLLocation(
+            latitude: 31.74205192244658,
+            longitude: -106.43238899466401
+        ),
+        id: "pista_2",
+        cuerpo: PistaInteractuable(
+            informacion: "Texto de prueba para la pantalla interactuable",
+            interacciones: [
+                boton(
+                    mensaje: "Puchopicame para ir a la pista 1",
+                    conecta_con_pista: "pista_1")
+            ]
+        )
+    )
 ]
   
        

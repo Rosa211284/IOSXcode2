@@ -18,7 +18,7 @@ struct SelectorPantallaPista : View {
             }
         switch pista_actual?.cuerpo{
         case let de_informacion as PistaInformacion:PantallaPistaInformacion(cuerpo_pista: de_informacion)
-        case let de_interaccion as PistaInteractuable:Text("es una pista con botoncitos")
+        case let de_interaccion as PistaInteractuable:PantallaPistaInteractuable(cuerpo_pista: de_interaccion)
                                                          default: Text("nada")
         }
     
