@@ -1,6 +1,7 @@
 
 
 import CoreLocation
+import SwiftUICore
 
 struct Pista: Identifiable{
     let ubicacion: CLLocation
@@ -8,6 +9,8 @@ struct Pista: Identifiable{
     var distancia_maxima: Double = 100.0
     let id: String
     let cuerpo: CuerpoPista
+   // var imagen: Image?
+    var imagenURL: URL?
     
     
     func calcular_porcentaje(ubicacion :CLLocation?) -> Double?{

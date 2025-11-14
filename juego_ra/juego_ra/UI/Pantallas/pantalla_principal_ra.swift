@@ -13,7 +13,8 @@ struct Pantalla_principal: View {
     var body: some View {
         
         Text("Pistas y donde encontrarlas")
-      
+        VistaCamara()
+        ZStack{
             NavigationStack{
                 ForEach(pistas){ pista in
                     if (pista.puede_ser_recogida(
@@ -21,6 +22,7 @@ struct Pantalla_principal: View {
                     ){
                         NavigationLink{
                             Text("pantalla pista")
+                            //PantallaPista()
                         } label:{
                             Text("Presiona para ir a la pista\(pista.id)").padding(20).background(Color.blue).border(Color.black).cornerRadius(10)
                         }.buttonStyle(.plain).padding(10)
@@ -58,7 +60,13 @@ struct Pantalla_principal: View {
                 }
             }
             
-        }
+        }.padding(20).background(Color.white)
+            .frame(maxWidth: .infinity)
+            .background(Color.blue.opacity(0.9))
+            .cornerRadius(12)
+            .shadow(radius: 4)
+    }
+
     
    
 }

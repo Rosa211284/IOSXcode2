@@ -7,19 +7,36 @@
 import SwiftUI
 struct PantallaPistaInteractuable: View {
     var cuerpo_pista : PistaInteractuable
+    @Environment(ControladorJuego.self) var controlador
+    
     var body: some View {
-   
+        
         Text(cuerpo_pista.informacion)
         
         ForEach(cuerpo_pista.interacciones){
             boton in
-            VStack{
+            NavigationLink{
+                SelectorPantallaPista(pista_Id: boton.conecta_con_pista)
+            } label: {
                 Text(boton.mensaje)
-                    .onTapGesture {
-                        print("ir a la pista\(boton.conecta_con_pista)")
-                    }
             }
+            
         }
         
     }
+        
+   
 }
+
+#Preview {
+    PantallaPistaInteractuable(cuerpo_pista:
+        PistaInteractuable(informacion: "hi",
+        interacciones: [
+            boton(mensaje: "mensaje del boton",
+                  conecta_con_pista: "Pista_1")
+        ]
+                           
+                          ))
+    .environment(ControladorJuego())
+}
+
