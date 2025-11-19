@@ -1,21 +1,30 @@
 import SwiftUI
 import CoreLocation
 
-struct Tarjeta_Pista: View {
-    var pista: Pista
-    
+struct DetallePista: View {
+    var pista: Pista  // Pista es el modelo que tienes para representar las pistas
+
     var body: some View {
         VStack {
+            // Título de la pista
+            Text("Detalles de la Pista \(pista.id)")
+                .font(.largeTitle)
+                .padding()
 
-            // --- IMAGEN ---
+            // Mostrar información de la pista
+            Text("Descripción: \(pista.cuerpo.informacion)")
+                .padding()
+
+            // Imagen de la pista
             AsyncImage(url: pista.imagenURL) { estado in
                 switch estado {
                 case .empty:
-                    ProgressView("Descargando imagen...")
+                    ProgressView("Cargando imagen...")
                 case .success(let imagen):
                     imagen
                         .resizable()
                         .scaledToFit()
+                        .frame(width: 300, height: 200)
                         .padding(5)
                 case .failure(_):
                     Text("Error al cargar la imagen")
@@ -24,26 +33,15 @@ struct Tarjeta_Pista: View {
                     EmptyView()
                 }
             }
-            .frame(width: 200, height: 200)
-            .background(Color.white)
-            .border(Color.black)
-            .cornerRadius(15)
-            .padding(5)
+            .padding()
 
-            // --- TEXTO ---
-            Text("Hola soy: \(pista.id)")
-                .padding(5)
+            Spacer()  // Para empujar el contenido hacia arriba
         }
+        .padding()
+        .navigationTitle("Pista \(pista.id)")
+        .background(Color.white)
+        .cornerRadius(12)
+        .shadow(radius: 4)
     }
 }
 
-#Preview {
-    Tarjeta_Pista(
-        pista: Pista(
-            ubicacion: CLLocation(latitude: 0, longitude: 0),
-            id: "pista_1",
-            cuerpo: CuerpoPista(informacion: "Texto demo"),
-            imagenURL: URL(string: "https://picsum.photos/300")
-        )
-    )
-}

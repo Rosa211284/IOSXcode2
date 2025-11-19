@@ -8,8 +8,10 @@ struct juego_raApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Pantalla_principal()
-                .environment(controlador_juego)
+            
+            /*Pantalla_principal()
+                .environment(controlador_juego)*/
+            PantallaPista()
         }
     }
 }

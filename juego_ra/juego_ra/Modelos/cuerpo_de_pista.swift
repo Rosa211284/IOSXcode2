@@ -11,6 +11,7 @@ enum TiposDePista{
 }
 
 protocol CuerpoPista{
+    
     var tipo: TiposDePista { get set }
     var informacion: String { get set }
 }

@@ -20,9 +20,8 @@ struct PantallaPistaInteractuable: View {
             } label: {
                 Text(boton.mensaje)
             }
-            
+    
         }
-        
     }
         
    

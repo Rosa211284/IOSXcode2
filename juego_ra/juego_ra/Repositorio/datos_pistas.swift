@@ -15,8 +15,8 @@ let pistas = [
     
     Pista(
         ubicacion: CLLocation(
-            latitude: 31.74205192244658,
-            longitude: -106.43238899466401
+            latitude: 31.743458187185613,
+            longitude:  -106.43191414183958
         ),
         id: "pista_2",
         cuerpo: PistaInteractuable(
@@ -32,8 +32,8 @@ let pistas = [
     
     Pista(
         ubicacion: CLLocation(
-            latitude: 31.74205192244658,
-            longitude: -106.43238899466401
+            latitude: 31.742948858299005,
+            longitude:  -106.43187965117663
         ),
         id: "pista_3",
         cuerpo: PistaInteractuable(
@@ -49,8 +49,8 @@ let pistas = [
     
     Pista(
         ubicacion: CLLocation(
-            latitude: 31.74205192244658,
-            longitude: -106.43238899466401
+            latitude: 31.742944076928865,
+            longitude:  -106.43256333360812
         ),
         id: "pista_4",
         cuerpo: PistaInteractuable(
