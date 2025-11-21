@@ -4,146 +4,251 @@ struct Pantalla_principal: View {
     @State var proveedor_ubicacion = ServicioUbicacion()
     
     var body: some View {
-        VStack {
-            Text("Pistas y donde encontrarlas")
-                .font(.title)
-                .padding()
+        ZStack {
+            Image("2")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
-            // Simulación de cámara o vista principal
-            Text("🔍 Usa tu cámara para buscar pistas cercanas")
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(12)
+          
             
-            NavigationStack {
-                VStack(spacing: 20) {
-                    ForEach(Array(pistas.enumerated()), id: \.element.id) { index, pista in
-                        if pista.puede_ser_recogida(ubicacion: proveedor_ubicacion.ubicacion_actual) ||
-                           pista.esta_en_rango(ubicacion: proveedor_ubicacion.ubicacion_actual) {
+            VStack(spacing: 25) {
+                
+                // 🖌️ Título estilo pintura
+                Text("Pistas entre las Pinturas")
+                    .font(.custom("Didot", size: 36))
+                    .foregroundColor(.yellow)
+                    .padding()
+                    .shadow(color: .yellow.opacity(0.9), radius: 3)
+                    .background(Color.white)
+                    .border(Color.yellow)
+                    .cornerRadius(15)
+                    .padding(20)
+                   
+                   
+                
+              
+                Text("Busca las pistas dentro del mundo de Van Gogh")
+                    .padding()
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .background(
+                        Color.blue.opacity(0.7)
+                            .blur(radius: 3)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.yellow.opacity(0.7), lineWidth: 2)
+                    )
+                    .cornerRadius(14)
+                    .padding(.horizontal)
+                
+                // Lista de pistas
+                NavigationStack {
+                    VStack(spacing: 22) {
+                        ForEach(Array(pistas.enumerated()), id: \.element.id) { index, pista in
                             
-                            NavigationLink {
-                                // Navegar a la pantalla de la pista según el índice
-                                switch index {
-                                case 0:
-                                    PantallaPista1()
-                                case 1:
-                                    PantallaPista2()
-                                case 2:
-                                    PantallaPista3()
-                                default:
-                                    Text("Pista no disponible")
+                            if pista.puede_ser_recogida(ubicacion: proveedor_ubicacion.ubicacion_actual) ||
+                                pista.esta_en_rango(ubicacion: proveedor_ubicacion.ubicacion_actual) {
+                                
+                                NavigationLink {
+                                    switch index {
+                                    case 0: PantallaPista1()
+                                    case 1: PantallaPista2()
+                                    case 2: PantallaPista3()
+                                    default: Text("Pista no disponible")
+                                    }
+                                } label: {
+                                    Text("Pista \(index + 1)")
+                                        .font(.custom("Didot", size: 36))
+                                        .frame(width: 300, height: 100)
+                                        .background(
+                                            LinearGradient(
+                                                colors: [.yellow, .orange],
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            )
+                                        )
+                                        .foregroundColor(.black)
+                                        .border(Color.black)
+                                        .cornerRadius(14)
+                                        .shadow(color: .yellow.opacity(0.7), radius: 8)
+                                        .padding(22)
                                 }
-                            } label: {
-                                Text("Ir a Pista \(index + 1)")
-                                    .padding()
-                                    .background(Color.blue)
-                                    .foregroundColor(.white)
+                                
+                            } else {
+                                Text("🖼️ No estás cerca de la pista \(index + 1)")
+                                    .foregroundColor(.white.opacity(0.7))
+                                    .padding(8)
+                                    .background(Color.black.opacity(0.25))
                                     .cornerRadius(10)
                             }
-                        } else {
-                            Text("No estás cerca de la pista \(index + 1)")
-                                .foregroundColor(.gray)
                         }
                     }
                 }
-                .padding()
+                
+                Spacer()
             }
+            .padding(.bottom, 40)
         }
-        .padding()
     }
-}
- 
-// MARK: - Pantallas individuales de pista
+
+    }
+    
+
 struct PantallaPista1: View {
+    @State private var mostrarCamara = false
     var body: some View {
-        VistaCamara()
-        VStack(spacing: 30) {
-            // Imagen de la pista (puedes usar tu propia imagen en lugar de este ícono)
-            Image(systemName: "tree.fill") // Reemplaza este ícono con una imagen si tienes una personalizada
+        
+        ZStack {
+            Image("2")
                 .resizable()
-                .scaledToFit()
-                .frame(width: 250, height: 250)
-                .padding()
-                .background(Color.green.opacity(0.2)) // Fondo verde para destacar la imagen
-                .cornerRadius(20)
-
-            // Título de la pantalla
-            Text("Pantalla de Pista 1")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(.blue)
-                .padding(.top, 10)
+                .scaledToFill()
+                .ignoresSafeArea()
             
-            // Descripción de la pista con fondo amarillo suave y bordes redondeados
-            Text("🔍 Busca un árbol grande cerca de la entrada del parque.")
-                .font(.title2)
-                .fontWeight(.medium)
-                .foregroundColor(.black)
-                .padding()
-                .background(Color.yellow.opacity(0.3)) // Fondo amarillo suave
-                .cornerRadius(15) // Bordes redondeados
-                .padding(.horizontal, 30) // Márgenes horizontales para separar el texto de los bordes
-
-            Spacer()
-            
-            // Botón con acción (puedes cambiar la acción para hacer algo)
-            Button(action: {
-                // Acción del botón
-                print("Comienza a buscar la pista")
-            }) {
-                Text("¡Comienza a buscar!")
-                    .font(.headline)
-                    .foregroundColor(.white)
+            VStack(spacing: 20) {
+                
+                Image(systemName: "tree.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .foregroundColor(.green)
+                    .shadow(color: .green.opacity(0.8), radius: 12)
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(12)
+                    .background(Color.white.opacity(0.6))
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+                    .shadow(radius: 8)
+                
+                
+                Text("Pista 1: El Árbol del Umbral")
+                    .font(.custom("Didot", size: 40))
+                    .foregroundColor(.black)
+                    .padding(20)
+                    .background(Color.white)
+                    .border(Color.black)
+                    .cornerRadius(20)
+                
+                
+                Text("Las pinturas de Van Gogh han despertado, y en esta zona el viento susurra algo extraño entre las hojas. Sigue el camino hasta encontrar un árbol grande cerca de la entrada del parque: ese es el primer punto donde la realidad toca el arte.")
+                    .font(.custom("Didot", size: 22))
+                    .foregroundColor(.black)
+                    .padding(20)
+                    .background(Color.white.opacity(0.55))
+                    .cornerRadius(18)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .stroke(Color.black.opacity(0.7))
+                    )
+                    .padding(30)
+                
+                
+                Button(action: {
+                    mostrarCamara = true
+                }) {
+                    Text("Comenzar Búsqueda")
+                        .font(.custom("Didot", size: 28))
+                        .foregroundColor(.black)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            LinearGradient(colors: [.yellow, .orange],
+                                           startPoint: .topLeading,
+                                           endPoint: .bottomTrailing)
+                        )
+                        .cornerRadius(14)
+                        .shadow(color: .yellow.opacity(0.8), radius: 10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(.black, lineWidth: 2)
+                        )
+                }
+                
+                
+                
+                
+                .padding()
+                /*.background(
+                 Image("1")
+                 .resizable()
+                 .scaledToFill()
+                 .ignoresSafeArea()
+                 )*/
+                .navigationTitle("Pista 1")
+                .sheet(isPresented: $mostrarCamara) {
+                    VistaCamara()
+                }
             }
-            .padding(.horizontal, 30) // Márgenes horizontales
-            .padding(.bottom, 40) // Espaciado inferior
+            
         }
-        .navigationTitle("Pista 1") // Título de la vista
-        .background(Color.white) // Fondo blanco para la vista
-        .cornerRadius(20) // Esquinas redondeadas de la vista principal
-        .shadow(radius: 10) // Sombra sutil para la vista
-        .padding() // Padding alrededor de la vista principal
-        .background(Color.blue.opacity(0.1)) // Fondo con un toque de color azul con opacidad
-        .cornerRadius(20) // Esquinas redondeadas para todo el fondo
     }
 }
- 
-struct PantallaPista2: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            VistaCamara()
-            Text("Pantalla de Pista 2")
-                .font(.largeTitle)
-            Text("🔍 Busca un objeto azul brillante en la plaza central.")
-                .padding()
-                .background(Color.yellow.opacity(0.3))
-                .cornerRadius(12)
-            Spacer()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    struct PantallaPista2: View {
+        var body: some View {
+            VStack(spacing: 20) {
+                VistaCamara()
+                Text("Pantalla de Pista 2")
+                    .font(.largeTitle)
+                Text("🔍 Busca un objeto azul brillante en la plaza central.")
+                    .padding()
+                    .background(Color.yellow.opacity(0.3))
+                    .cornerRadius(12)
+                Spacer()
+            }
+            .navigationTitle("Pista 2")
+            .padding()
         }
-        .navigationTitle("Pista 2")
-        .padding()
     }
-}
- 
-struct PantallaPista3: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            VistaCamara()
-            Text("Pantalla de Pista 3")
-                .font(.largeTitle)
-            Text("🔍 Observa las luces rojas cerca de la fuente del parque.")
-                .padding()
-                .background(Color.yellow.opacity(0.3))
-                .cornerRadius(12)
-            Spacer()
+    
+    struct PantallaPista3: View {
+        var body: some View {
+            VStack(spacing: 20) {
+                VistaCamara()
+                Text("Pantalla de Pista 3")
+                    .font(.largeTitle)
+                Text("🔍 Observa las luces rojas cerca de la fuente del parque.")
+                    .padding()
+                    .background(Color.yellow.opacity(0.3))
+                    .cornerRadius(12)
+                Spacer()
+            }
+            .navigationTitle("Pista 3")
+            .padding()
         }
-        .navigationTitle("Pista 3")
-        .padding()
     }
+    
+    struct PantallaPista4: View {
+        var body: some View {
+            VStack(spacing: 20) {
+                VistaCamara()
+                Text("Pantalla de Pista 3")
+                    .font(.largeTitle)
+                Text("🔍 Observa las luces rojas cerca de la fuente del parque.")
+                    .padding()
+                    .background(Color.yellow.opacity(0.3))
+                    .cornerRadius(12)
+                Spacer()
+            }
+            .navigationTitle("Pista 4")
+            .padding()
+        }
+        
+        
+        
+    
 }
  
 // Preview
