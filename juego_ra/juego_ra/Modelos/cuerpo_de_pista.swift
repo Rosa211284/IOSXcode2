@@ -5,6 +5,7 @@
 //  Created by Jadzia Gallegos on 05/11/25.
 //
 
+
 enum TiposDePista{
     case informacion
     case interactiva
@@ -31,5 +32,4 @@ struct PistaInteractuable: CuerpoPista{
     
     
 }
-
 

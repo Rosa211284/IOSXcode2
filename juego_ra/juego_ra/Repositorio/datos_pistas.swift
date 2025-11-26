@@ -1,9 +1,10 @@
+
 import CoreLocation
 
 let pistas = [
     Pista(
         ubicacion:
-            CLLocation(latitude: 31.74211835729694, longitude: -106.43233447079758),  
+            CLLocation(latitude: 31.74211835729694, longitude: -106.43233447079758),
         
         id: "pista_1",
         cuerpo:

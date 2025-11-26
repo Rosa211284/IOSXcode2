@@ -1,3 +1,4 @@
+
 import SwiftUI
  
 struct Pantalla_principal: View {

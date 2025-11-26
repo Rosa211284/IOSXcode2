@@ -4,6 +4,7 @@
 //
 //  Created by alumno on 11/19/25.
 //
+
 import SwiftUI
 
 // Pantalla principal

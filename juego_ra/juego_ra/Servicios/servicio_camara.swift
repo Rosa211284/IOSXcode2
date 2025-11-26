@@ -4,77 +4,125 @@
 //
 //  Created by alumno on 11/12/25.
 //
+
 import Foundation
 import AVFoundation
 import UIKit
 
 @Observable
-class ServicioCamara{
+class ServicioCamara: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+    
     private let sesion = AVCaptureSession()
+    private var previsualizacion: AVCaptureVideoPreviewLayer?
     
-    private var entrada_del_dispotivo: AVCaptureDeviceInput?
-    private var salida_de_video: AVCaptureVideoDataOutput?
+    private let salidaCodigos = AVCaptureMetadataOutput()
     
-    private var previsualizacion:  AVCaptureVideoPreviewLayer?
+    // Callback del código
+    var codigoDetectado: ((String) -> Void)?
     
-    private let tipo_camara_preferida = AVCaptureDevice.default(for: .video)
+    private let colaSesion = DispatchQueue(label: "sesion.video")
     
-    private var lista_de_sesion = DispatchQueue(label: "sesion.video")
-    
-    
-    func autorizacion_camara() async -> Bool{
-        let estado_autorizacion = AVCaptureDevice.authorizationStatus(for: .video)
+    // MARK: - AUTORIZACIÓN
+    func autorizacion_camara() async -> Bool {
+        let estado = AVCaptureDevice.authorizationStatus(for: .video)
         
-        if estado_autorizacion == .notDetermined{
-            await AVCaptureDevice.requestAccess(for: .video)
+        if estado == .notDetermined {
+            let aceptado = await AVCaptureDevice.requestAccess(for: .video)
+            return aceptado
         }
         
-        return estado_autorizacion == .authorized
+        return estado == .authorized
     }
     
-    init(){
-        Task{
-            await autorizacion_camara()
+    override init() {
+        super.init()
+        
+        Task {
+            let ok = await autorizacion_camara()
+            if !ok {
+                print("⚠️ No hay permiso de cámara")
+            }
         }
     }
     
-    func iniciar(){
-        guard let dispositivo = AVCaptureDevice.default(for: .video),
-              let entrada = try? AVCaptureDeviceInput(device: dispositivo),
-              sesion.canAddInput(entrada)
-              //sesion.canAddOutput(output: salida /// Que salida que no se ha descrito)
-        else {
-            return
+    
+    // MARK: - INICIAR
+    func iniciar() {
+        colaSesion.async { [weak self] in
+            guard let self else { return }
+            
+            guard let dispositivo = AVCaptureDevice.default(for: .video),
+                  let entrada = try? AVCaptureDeviceInput(device: dispositivo)
+            else { return }
+            
+            self.sesion.beginConfiguration()
+            
+            if self.sesion.canAddInput(entrada) {
+                self.sesion.addInput(entrada)
+            }
+            
+            // Salida para QR y códigos de barra
+            if self.sesion.canAddOutput(self.salidaCodigos) {
+                self.sesion.addOutput(self.salidaCodigos)
+                
+                self.salidaCodigos.setMetadataObjectsDelegate(self, queue: .main)
+                self.salidaCodigos.metadataObjectTypes = [
+                    .qr, .ean8, .ean13, .code128, .code39, .code93,
+                    .upce, .pdf417, .aztec, .dataMatrix
+                ]
+            }
+            
+            self.sesion.commitConfiguration()
+            self.sesion.startRunning()
         }
-        
-        sesion.beginConfiguration()
-        sesion.addInput(entrada)
-        //sesion.addOutput()
-        sesion.commitConfiguration()
-        sesion.startRunning()
     }
     
-    func detener(){
-        sesion.stopRunning()
-        
-        sesion.beginConfiguration()
-        sesion.inputs.forEach { sesion.removeInput($0) }
-        sesion.outputs.forEach { sesion.removeOutput($0) }
-        
-        sesion.commitConfiguration()
-        
-        previsualizacion = nil
+    
+    // MARK: - DETENER
+    func detener() {
+        colaSesion.async { [weak self] in
+            guard let self else { return }
+            
+            self.sesion.stopRunning()
+            
+            self.sesion.beginConfiguration()
+            self.sesion.inputs.forEach { self.sesion.removeInput($0) }
+            self.sesion.outputs.forEach { self.sesion.removeOutput($0) }
+            self.sesion.commitConfiguration()
+            
+            self.previsualizacion = nil
+        }
     }
     
-    func obtener_previsualizacion_camara() -> AVCaptureVideoPreviewLayer{
-        if let capa = previsualizacion{
+    
+    // MARK: - PREVIEW
+    func obtener_previsualizacion_camara() -> AVCaptureVideoPreviewLayer {
+        if let capa = previsualizacion {
             return capa
         }
         
         let capa = AVCaptureVideoPreviewLayer(session: sesion)
         capa.videoGravity = .resizeAspectFill
-        previsualizacion = capa
+        self.previsualizacion = capa
         return capa
     }
     
+    
+    // MARK: - LECTURA DE CÓDIGOS
+    func metadataOutput(_ output: AVCaptureMetadataOutput,
+                        didOutput metadataObjects: [AVMetadataObject],
+                        from connection: AVCaptureConnection) {
+        
+        guard let objeto = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
+              let valor = objeto.stringValue else { return }
+        
+        // Para evitar spam excesivo
+        sesion.stopRunning()
+        codigoDetectado?(valor)
+        
+        // Vuelve a iniciar tras 1 segundo para no trabar el UI
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.sesion.startRunning()
+        }
+    }
 }
