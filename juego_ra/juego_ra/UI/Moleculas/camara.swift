@@ -37,7 +37,19 @@ struct VistaCamara: View {
 
                 switch codigo {
                 case "imagen_01":
-                    imagenAmostrar = "1"  // Esta es la imagen del Assets
+                    imagenAmostrar = "1"  
+                    print("Mostrando imagen 1")
+                
+                case "imagen_02":
+                    imagenAmostrar = "1"
+                    print("Mostrando imagen 1")
+                    
+                case "imagen_03":
+                    imagenAmostrar = "3"
+                    print("Mostrando imagen 1")
+                    
+                case "imagen_04":
+                    imagenAmostrar = "4"
                     print("Mostrando imagen 1")
                     
                 default:

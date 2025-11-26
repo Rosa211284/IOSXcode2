@@ -57,6 +57,7 @@ struct Pantalla_principal: View {
                                     case 0: PantallaPista1()
                                     case 1: PantallaPista2()
                                     case 2: PantallaPista3()
+                                    case 3: PantallaPista4()
                                     default: Text("Pista no disponible")
                                     }
                                 } label: {
@@ -102,19 +103,19 @@ struct PantallaPista1: View {
     var body: some View {
         
         ZStack {
-            Image("2")
+            Image("3")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
                 
-                Image(systemName: "tree.fill")
+                Image(systemName: "cup.and.heat.waves")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
-                    .foregroundColor(.green)
-                    .shadow(color: .green.opacity(0.8), radius: 12)
+                    .foregroundColor(.brown)
+                    .shadow(color: .brown.opacity(0.8), radius: 12)
                     .padding()
                     .background(Color.white.opacity(0.6))
                     .cornerRadius(20)
@@ -125,7 +126,7 @@ struct PantallaPista1: View {
                     .shadow(radius: 8)
                 
                 
-                Text("Pista 1: El Árbol del Umbral")
+                Text("Pista 1: Noche en el cafe")
                     .font(.custom("Didot", size: 40))
                     .foregroundColor(.black)
                     .padding(20)
@@ -134,7 +135,7 @@ struct PantallaPista1: View {
                     .cornerRadius(20)
                 
                 
-                Text("Las pinturas de Van Gogh han despertado, y en esta zona el viento susurra algo extraño entre las hojas. Sigue el camino hasta encontrar un árbol grande cerca de la entrada del parque: ese es el primer punto donde la realidad toca el arte.")
+                Text("Donde el aroma despierta a los hambreados.No solo rugen los estómagos:también las billeteras tiemblan,aunque el sabor apenas alcanza.Tu pista te espera en la entrada.")
                     .font(.custom("Didot", size: 22))
                     .foregroundColor(.black)
                     .padding(20)
@@ -198,53 +199,255 @@ struct PantallaPista1: View {
     
     
     struct PantallaPista2: View {
+        @State private var mostrarCamara = false
         var body: some View {
-            VStack(spacing: 20) {
-                VistaCamara()
-                Text("Pantalla de Pista 2")
-                    .font(.largeTitle)
-                Text("🔍 Busca un objeto azul brillante en la plaza central.")
+            ZStack {
+                Image("7")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    
+                    Image(systemName: "tree.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(.green)
+                        .shadow(color: .green.opacity(0.8), radius: 12)
+                        .padding()
+                        .background(Color.white.opacity(0.6))
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+                        .shadow(radius: 8)
+                    
+                    
+                    Text("Pista 2: El Árbol del Umbral")
+                        .font(.custom("Didot", size: 40))
+                        .foregroundColor(.black)
+                        .padding(20)
+                        .background(Color.white)
+                        .border(Color.black)
+                        .cornerRadius(20)
+                    
+                    
+                    Text("No todos los pilares son de concreto. Algunos respiran, y nos permiten respirar.Tu seña será verde como un semáforo y café como la tierra que lo sostiene")
+                        .font(.custom("Didot", size: 22))
+                        .foregroundColor(.black)
+                        .padding(20)
+                        .background(Color.white.opacity(0.55))
+                        .cornerRadius(18)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 18)
+                                .stroke(Color.black.opacity(0.7))
+                        )
+                        .padding(30)
+                    
+                    
+                    Button(action: {
+                        mostrarCamara = true
+                    }) {
+                        Text("Comenzar Búsqueda")
+                            .font(.custom("Didot", size: 28))
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                LinearGradient(colors: [.yellow, .orange],
+                                               startPoint: .topLeading,
+                                               endPoint: .bottomTrailing)
+                            )
+                            .cornerRadius(14)
+                            .shadow(color: .yellow.opacity(0.8), radius: 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(.black, lineWidth: 2)
+                            )
+                    }
+                    
+                    
+                    
+                    
                     .padding()
-                    .background(Color.yellow.opacity(0.3))
-                    .cornerRadius(12)
-                Spacer()
+                    tionTitle("Pista 2")
+                    .sheet(isPresented: $mostrarCamara) {
+                        VistaCamara()
+                    }
+                }
+                
             }
-            .navigationTitle("Pista 2")
-            .padding()
+        
         }
     }
     
     struct PantallaPista3: View {
+        @State private var mostrarCamara = false
         var body: some View {
-            VStack(spacing: 20) {
-                VistaCamara()
-                Text("Pantalla de Pista 3")
-                    .font(.largeTitle)
-                Text("🔍 Observa las luces rojas cerca de la fuente del parque.")
+            ZStack {
+                Image("9")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    
+                   Image(systemName: "desktopcomputer")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(.gray)
+                        .shadow(color: .gray.opacity(0.8), radius: 12)
+                        .padding()
+                        .background(Color.white.opacity(0.6))
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+                        .shadow(radius: 8)
+                    
+                    
+                    Text("Pista 3: El arte de las Computadoras")
+                        .font(.custom("Didot", size: 40))
+                        .foregroundColor(.black)
+                        .padding(20)
+                        .background(Color.white)
+                        .border(Color.black)
+                        .cornerRadius(20)
+                
+                    Text("Aquí se mezclan diseñadores e ingenieros;aquí las materias se inviertencomo un reflejo en el agua.Sigue donde el conocimiento cambia de forma.")
+                        .font(.custom("Didot", size: 22))
+                        .foregroundColor(.black)
+                        .padding(20)
+                        .background(Color.white.opacity(0.55))
+                        .cornerRadius(18)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 18)
+                                .stroke(Color.black.opacity(0.7))
+                        )
+                        .padding(30)
+                    
+                    
+                    Button(action: {
+                        mostrarCamara = true
+                    }) {
+                        Text("Comenzar Búsqueda")
+                            .font(.custom("Didot", size: 28))
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                LinearGradient(colors: [.yellow, .orange],
+                                               startPoint: .topLeading,
+                                               endPoint: .bottomTrailing)
+                            )
+                            .cornerRadius(14)
+                            .shadow(color: .yellow.opacity(0.8), radius: 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(.black, lineWidth: 2)
+                            )
+                    }
+                    
+                    
+                    
+                    
                     .padding()
-                    .background(Color.yellow.opacity(0.3))
-                    .cornerRadius(12)
-                Spacer()
+                   
+                    .navigationTitle("Pista 3")
+                    .sheet(isPresented: $mostrarCamara) {
+                        VistaCamara()
+                    }
+                }
+                
             }
-            .navigationTitle("Pista 3")
-            .padding()
         }
     }
     
     struct PantallaPista4: View {
+        @State private var mostrarCamara = false
         var body: some View {
-            VStack(spacing: 20) {
-                VistaCamara()
-                Text("Pantalla de Pista 3")
-                    .font(.largeTitle)
-                Text("🔍 Observa las luces rojas cerca de la fuente del parque.")
+            ZStack {
+                Image("6")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                
+                    Image(systemName: "hanger")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(.gray)
+                        .shadow(color: .gray.opacity(0.8), radius: 12)
+                        .padding()
+                        .background(Color.white.opacity(0.6))
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+                        .shadow(radius: 8)
+                    
+                    
+                    Text("Edificio de Tejedores y Grabaciones (donde las manzanas no se comen)")
+                        .font(.custom("Didot", size: 40))
+                        .foregroundColor(.black)
+                        .padding(20)
+                        .background(Color.white)
+                        .border(Color.black)
+                        .cornerRadius(20)
+                    
+                    
+                    Text("Dicen que es el pilar más joven,lleno de vida y siempre despierto.Aquí los tejedores crean sin ruido,las grabaciones fluyen sin problema,y las manzanas… no se comen")
+                        .font(.custom("Didot", size: 22))
+                        .foregroundColor(.black)
+                        .padding(40)
+                        .background(Color.white.opacity(0.55))
+                        .cornerRadius(18)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 18)
+                                .stroke(Color.black.opacity(0.7))
+                        )
+                        .padding(30)
+                    
+                    
+                    Button(action: {
+                        mostrarCamara = true
+                    }) {
+                        Text("Comenzar Búsqueda")
+                            .font(.custom("Didot", size: 28))
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                LinearGradient(colors: [.yellow, .orange],
+                                               startPoint: .topLeading,
+                                               endPoint: .bottomTrailing)
+                            )
+                            .cornerRadius(14)
+                            .shadow(color: .yellow.opacity(0.8), radius: 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(.black, lineWidth: 2)
+                            )
+                    }
+                    
+                    
+                    
+                    
                     .padding()
-                    .background(Color.yellow.opacity(0.3))
-                    .cornerRadius(12)
-                Spacer()
+                    .navigationTitle("Pista 4")
+                    .sheet(isPresented: $mostrarCamara) {
+                        VistaCamara()
+                    }
+                }
+                
             }
-            .navigationTitle("Pista 4")
-            .padding()
         }
         
         
